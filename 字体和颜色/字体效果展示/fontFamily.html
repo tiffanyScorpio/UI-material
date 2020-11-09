@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>字体示例</title>
+<style>
+    .item {
+        /* width: 100%; */
+        /* color:aqua */
+        padding: 10px;
+        border-bottom: 2px solid aqua;
+    }
+
+    .item:hover,
+    .item:focus {
+        background-color: azure;
+    }
+
+    .item_name {
+        font-size: 25px;
+        font-weight: bolder;
+        margin: 0;
+    }
+
+    .font_normal {
+        font-size: 20px;
+    }
+
+    .font_bolder {
+        font-size: 20px;
+        font-weight: bolder;
+    }
+</style>
+<link rel="stylesheet" href="./字体/font.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="item" v-for="item in fontFamilyArr" :key="item.name" :style="{fontFamily: item.name}"
+            @click="clickFontItem(item.name)">
+            <input type="checkbox" class="checkbox" :name="item.name" :value="item.name"
+                :id="'font_checkbox_'+item.name">
+            <p class="item_name">{{item.name}}<span v-if="item.remark">--{{item.remark}}</span></p>
+            <div class="font_normal">
+                <span :style="{color:item.num?'red':'black'}">1234567890</span>
+                <span :style="{color:item.en?'red':'black'}">abcdefjhigklmnopqrstuvwxyz</span>
+                <span :style="{color:item.en?'red':'black'}">ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+                <span :style="{color:item.zh?'red':'black'}">时产硫化成型设备工序订单</span>
+            </div>
+            <div class="font_bolder">
+                <span>1234567890</span>
+                <span>abcdefjhigklmnopqrstuvwxyz</span>
+                <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+                <span>时产硫化成型设备工序订单</span>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/fontFamily.js"></script>
+</body>
+
+</html>

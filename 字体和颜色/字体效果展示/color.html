@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>颜色示例</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    .color_species {
+        /* width: 100%; */
+        /* color:aqua */
+        padding: 10px;
+        border-bottom: 2px solid aqua;
+    }
+
+    .color_list {}
+
+    .color_item {
+        display: inline-block;
+        width: 100px;
+        height: 80px;
+        margin: 5px;
+    }
+
+    /* .color_item span {
+        display: inline-block;
+        width: 100%;
+        line-height: 50px;
+        text-align: center;
+        color: #fff;
+    } */
+</style>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="color_species" v-for="item in colorArr">
+            <h1>{{item.spec}}</h1>
+            <div class="color_list">
+                <div v-for="site in item.list" class="color_item">
+                    <input type="checkbox" class="checkbox" :name="site" :value="site" :id="'font_checkbox_'+site">
+                    <span>#{{site}}</span>
+                    <div :style="setColorItemStyle(site)"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/vue.min.js"></script>
+    <script src="./js/color.js"></script>
+</body>
+
+</html>
